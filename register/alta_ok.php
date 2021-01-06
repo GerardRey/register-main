@@ -13,6 +13,8 @@ class Alta_ok
 	private $edad = null;
 	private $mail = null;
 
+	private $textoserr = null;
+
 	public function getNick()
 	{
 		return $this->nick;
@@ -88,7 +90,7 @@ class Alta_ok
 		$this->nick = $nick;
 
 		if (strlen($this->nick) > 20 || strlen($this->nick) < 2) {
-			echo "Error Nickname: El limite es entre 2 y 20. <br>";
+			$this->textoserr = "Error Nickname: El limite es entre 2 y 20.\\n";
 
 			$this->fallos++;
 		}
@@ -100,7 +102,7 @@ class Alta_ok
 		$this->pass = $pass;
 
 		if (strlen($this->pass) > 15 || strlen($this->pass) < 3) {
-			echo "Error Password: El limite es entre 3 y 15. <br>";
+			$this->textoserr = $this->textoserr . "Error Password: El limite es entre 3 y 15.\\n";
 
 			$this->fallos++;
 		}
@@ -116,7 +118,7 @@ class Alta_ok
 		  
 		if ( substr("TRWAGMYFPDXBNJZSQVHLCKE", $numeros%23, 1) != $letra || strlen($letra) != 1 || strlen ($numeros) != 8 ) {
 			
-			echo "Error DNI: El Dni que se ha dado no es valido <br>";
+			$this->textoserr = $this->textoserr . "Error DNI: El Dni que se ha dado no es valido.\\n";
 			
 			$this->fallos++;
 
@@ -128,7 +130,7 @@ class Alta_ok
 		$this->nombre = $nombre;
 
 		if (strlen($this->nombre) > 20 || strlen($this->nombre) < 2 ) {
-			echo "Error Nombre: El limite es entre 2 y 20. <br>";
+			$this->textoserr = $this->textoserr . "Error Nombre: El limite es entre 2 y 20.\\n";
 			
 			$this->fallos++;
 
@@ -141,7 +143,7 @@ class Alta_ok
 		$this->apellido = $apellido;
 
 		if (strlen($this->apellido) > 30 || strlen($this->apellido) < 2) {
-			echo "Error Apellido: El limite es entre 2 y 30. <br>";
+			$this->textoserr = $this->textoserr . "Error Apellido: El limite es entre 2 y 30.\\n";
 
 			$this->fallos++;
 		}
@@ -153,7 +155,7 @@ class Alta_ok
 
 		if ($this->edad < 18 || $this->edad > 99) {
 
-			echo "Edad erronea tiene que ser entre 18 y 99 <br>";
+			$this->textoserr = $this->textoserr . "Edad erronea tiene que ser entre 18 y 99 ";
 
 			$this->fallos++;
 		}
@@ -168,9 +170,17 @@ class Alta_ok
 	public function fallos() {
 		
 		if ($this->fallos != 0) {
-			die ("Retrocede para volverte a registrar.");
+			$this->jscript();
 		}
 
+	}
+
+	public function jscript() {
+		echo "<script type='text/JavaScript'>  
+			 alert('$this->textoserr');
+			 window.location.replace('./register.html');
+		 </script>";
+		die;
 	}
 	
 	public function insertsql()
@@ -179,7 +189,7 @@ class Alta_ok
 		$servidor = "localhost";
 		$usuario = "root";
 		$contraseña = "";
-		$bd = "test";
+		$bd = "tienda";
 
 		//realizamos la conexión
 		$con = mysqli_connect($servidor, $usuario, $contraseña, $bd);
@@ -198,17 +208,22 @@ class Alta_ok
 
 		if ($datos['cuantos'] == 0){
 	
-		$consulta = mysqli_query($con, "insert into usuarios values ('$this->nick','$this->pass','$this->dni','$this->nombre','$this->apellido','$this->edad','$this->mail')");
+		$consulta = mysqli_query($con, "insert into usuarios values ('$this->nick','$this->pass','$this->dni','$this->nombre','$this->apellido','$this->edad','$this->mail',0)");
 
-		if (!$consulta) {
-			die("Error en introduccir los datos");
-		} else {
-			echo "Datos insertados!";
+			if (!$consulta) {
+				die("Error en introduccir los datos");
+			} else {
+				echo "Datos insertados!";
+			}
 		}
-	}
-	else {
-		echo "El nick $this->nick no está disponible";
-	}
+		else {
+			echo "<script type='text/JavaScript'>  
+			alert('El nick $this->nick no está disponible'); 
+			
+			window.location.replace('./register.html')
+			</script>";
+
+		}
 }
 
 	

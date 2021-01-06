@@ -9,7 +9,7 @@ $password = "";
 $servidor = "localhost";
 $usuario = "root";
 $contraseña = "";
-$bd = "test";
+$bd = "tienda";
 
 $nick = $_POST["nick"];
 $pass = $_POST["pass"];
