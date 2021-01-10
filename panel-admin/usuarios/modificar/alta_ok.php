@@ -178,12 +178,12 @@ class Alta_ok
 	public function jscript() {
 		echo "<script type='text/JavaScript'>  
 			 alert('$this->textoserr');
-			 window.location.replace('./register.html');
+			 window.location.replace('./../usuarios.php');
 		 </script>";
 		die;
 	}
 	
-	public function insertsql()
+	public function insertsql($nickantiguo)
 	{
 
 		$this->pass = password_hash($this->pass, PASSWORD_DEFAULT);
@@ -211,7 +211,7 @@ class Alta_ok
 
 		if ($datos['cuantos'] == 0){
 	
-		$consulta = mysqli_query($con, "insert into usuarios values ('$this->nick','$this->pass','$this->dni','$this->nombre','$this->apellido','$this->edad','$this->mail',0)");
+		$consulta = mysqli_query($con, "UPDATE usuarios SET nick = '$this->nick', pass = '$this->pass', dni = '$this->dni', nombre = '$this->nombre', apellido = '$this->apellido', edad = '$this->edad', mail = '$this->mail', admin = 0 WHERE nick ='$nickantiguo'");
 
 			if (!$consulta) {
 				die("Error en introduccir los datos");
@@ -219,15 +219,15 @@ class Alta_ok
 				echo "<script type='text/JavaScript'>  
 				alert('Se a realizado correctamente el Registro'); 
 				
-				window.location.replace('./../log-register/login.html')
-				</script>";;
+				window.location.replace('./../usuarios.php')
+				</script>";
 			}
 		}
 		else {
 			echo "<script type='text/JavaScript'>  
-			alert('El nick $this->nick no está disponible'); 
+			alert('El nick $this->nick no existe o no se a modificado nada.'); 
 			
-			window.location.replace('./register.html')
+			window.location.replace('./../usuarios.php')
 			</script>";
 
 		}

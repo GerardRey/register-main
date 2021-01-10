@@ -1,0 +1,31 @@
+
+/* Estil del header de la pagina */
+header {
+    background-image: url(./../../banner_header.png);
+    color: white;
+    text-align: center;
+    height: 300px;
+    text-transform: uppercase;
+  }
+  
+  /* Estil que es troba al text del header */
+  #h1 {
+    padding-top: 180px;
+    font-size: 60px !important;
+  }
+
+body {
+  background-image: url(./../summoners-rift-background.jpg);
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+  
+#imagen {
+  height: 400px;
+}
+
+.tabla {
+  overflow:auto;
+  max-height: 400px;
+}

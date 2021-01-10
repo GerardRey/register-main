@@ -2,8 +2,8 @@
 
 session_start();
 
-$logueado = 0;
 $password = "";
+$admin = 0;
 
 //Parámetros de conexión
 $servidor = "localhost";
@@ -28,30 +28,42 @@ while ($fila = $resultado->fetch_assoc()) {
 	$numero = $fila["cuantos"];
 }
 if ($numero == 0) {
-	echo "El usuario no existe";
+	echo "<script type='text/JavaScript'>  
+			 alert('El usuario no existe');
+			 window.location.replace('./login.html');
+		 </script>";
 } else {
-	$instruccion = "select pass as cuantos from usuarios where pass = '$pass'";
+	$instruccion = "select pass, admin from usuarios where nick = '$nick'";
 	$resultado = mysqli_query($con, $instruccion);
 
 	while ($fila = $resultado->fetch_assoc()) {
-		$password = $fila["cuantos"];
+		$password = $fila["pass"];
+		$admin = $fila["admin"];
 	}
 
 	/////////////////
 
-	if ((strcmp($password, $pass) !== 0) || $pass == "") {
-		echo "Contraseña incorrecta";
+	if (!password_verify($pass, $password)) {
+		echo password_verify($pass, $password);
+		echo "<script type='text/JavaScript'>  
+			 alert('La contraseña es incorrecta');
+			 window.location.replace('./login.html');
+		 </script>";
 	} else {
-		echo "Login OK";
-		$_SESSION["nick_logueado"] = $nick;
-?>
 
-		<a href="https://www.google.es">Acceder al menu</a>
+		$_SESSION["nick"] = $nick;
 
-<?php
+		if ($admin == 1) {
 
+			header("Location: ./../panel-admin/admin.php");
 
-		$logueado = 1;
+		}
+		else {
+
+			header("Location: ./../panel-usuario/usuario.php");
+			
+		}
+
 	}
 }
 ?>

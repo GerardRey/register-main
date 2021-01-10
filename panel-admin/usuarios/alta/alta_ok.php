@@ -178,7 +178,7 @@ class Alta_ok
 	public function jscript() {
 		echo "<script type='text/JavaScript'>  
 			 alert('$this->textoserr');
-			 window.location.replace('./register.html');
+			 window.location.replace('./alta-usuario.php);
 		 </script>";
 		die;
 	}
@@ -219,15 +219,15 @@ class Alta_ok
 				echo "<script type='text/JavaScript'>  
 				alert('Se a realizado correctamente el Registro'); 
 				
-				window.location.replace('./../log-register/login.html')
-				</script>";;
+				window.location.replace('./../usuarios.php')
+				</script>";
 			}
 		}
 		else {
 			echo "<script type='text/JavaScript'>  
 			alert('El nick $this->nick no está disponible'); 
 			
-			window.location.replace('./register.html')
+			window.location.replace('./alta-usuario.php')
 			</script>";
 
 		}
