@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-01-2021 a las 09:32:39
+-- Tiempo de generación: 12-01-2021 a las 19:35:01
 -- Versión del servidor: 10.4.14-MariaDB
--- Versión de PHP: 7.4.11
+-- Versión de PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,26 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `tienda`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `personajes`
+--
+
+CREATE TABLE `personajes` (
+  `id` int(11) NOT NULL,
+  `nombre` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `combo` varchar(20) CHARACTER SET utf8 NOT NULL,
+  `origen` varchar(20) CHARACTER SET utf8 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `personajes`
+--
+
+INSERT INTO `personajes` (`id`, `nombre`, `combo`, `origen`) VALUES
+(3, 'Yasuo', 'Duelista', 'Exiliado');
 
 -- --------------------------------------------------------
 
@@ -52,10 +72,26 @@ INSERT INTO `usuarios` (`nick`, `pass`, `dni`, `nombre`, `apellido`, `edad`, `ma
 --
 
 --
+-- Indices de la tabla `personajes`
+--
+ALTER TABLE `personajes`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`nick`);
+
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `personajes`
+--
+ALTER TABLE `personajes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

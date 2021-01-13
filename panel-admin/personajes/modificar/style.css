@@ -1,7 +1,7 @@
 
 /* Estil del header de la pagina */
 header {
-    background-image: url(./../../banner_header.png);
+    background-image: url(./../../../banner_header.png);
     color: white;
     text-align: center;
     height: 300px;
@@ -15,7 +15,7 @@ header {
   }
 
 body {
-  background-image: url(./../summoners-rift-background.jpg);
+  background-image: url(./../../summoners-rift-background.jpg);
   width: 100%;
   height: 100%;
   background-size: cover;
@@ -23,9 +23,4 @@ body {
   
 #imagen {
   height: 400px;
-}
-
-.tabla {
-  overflow:auto;
-  max-height: 400px;
 }

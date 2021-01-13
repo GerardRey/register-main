@@ -38,7 +38,7 @@ session_start();
 
         echo '<script type="text/JavaScript">  
 			 alert("No estas logeado como admin");
-			 window.location.replace("/php/tienda/log-register/login.html");
+			 window.location.replace("/tienda/log-register/login.html");
 		 </script>';
 
         die();
