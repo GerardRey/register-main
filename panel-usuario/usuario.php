@@ -12,7 +12,7 @@ require("./../comprovacion/compro_logeado_u.php");
         <script type="text/javascript" src="./../alertaout.js"></script>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-        <title>Panel Admin</title>
+        <title>Panel Usuari</title>
     </head>
     <header>
 
@@ -23,8 +23,8 @@ require("./../comprovacion/compro_logeado_u.php");
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="navbar-brand" class="nav-link" href="./usuarios/usuarios.php" >Panel Usuario</a>
-                        <a class="navbar-brand" class="nav-link" href="./personajes/personajes.php" >Panel Personajes</a>
+                        <a class="navbar-brand" class="nav-link" href="./tienda/tienda.php" >Tienda</a>
+                        <a class="navbar-brand" class="nav-link" href="./perfil/perfil.php" >Perfil</a>
                         <a class="navbar-brand" class="nav-link" type="button" onclick="logout()">Log Out</a>
                     </li>
                 </ul>

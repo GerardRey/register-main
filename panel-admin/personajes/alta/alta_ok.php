@@ -8,6 +8,7 @@ class Alta_ok
 	private $nombre = null;
 	private $combo = null;
 	private $origen = null;
+	private $precio = 0;
 
 	private $textoserr = null;
 
@@ -41,6 +42,16 @@ class Alta_ok
 		$this->origen = $origen;
 	}
 
+	public function getPrecio()
+	{
+		return $this->precio;
+	}
+
+	public function setPrecio($precio)
+	{
+		$this->precio = $precio;
+	}
+
 	public function validarNombre($nombre)
 	{
 		$this->nombre = $nombre;
@@ -54,8 +65,8 @@ class Alta_ok
 
 	}
 
-	public function validarCombo($combo) {
-
+	public function validarCombo($combo) 
+	{
 		$this->combo = $combo;
 
 		if (strlen($this->combo) > 20 || strlen($this->combo) < 2 ) {
@@ -66,7 +77,8 @@ class Alta_ok
 		} 
 	}
 
-	public function validarOrigen($origen) {
+	public function validarOrigen($origen) 
+	{
 
 		$this->origen = $origen;
 
@@ -78,7 +90,21 @@ class Alta_ok
 		} 
 	}
 
-	public function fallos() {
+	public function validarPrecio($precio) 
+	{
+
+		$this->precio = $precio;
+
+		if ($this->precio < 1 || $this->precio > 5) {
+
+			$this->textoserr = $this->textoserr . "Edad erronea tiene que ser entre 1 y 5 ";
+
+			$this->fallos++;
+		}
+	}
+
+	public function fallos() 
+	{
 		
 		if ($this->fallos != 0) {
 			$this->jscript();
@@ -86,7 +112,8 @@ class Alta_ok
 
 	}
 
-	public function jscript() {
+	public function jscript() 
+	{
 		echo "<script type='text/JavaScript'>  
 			 alert('$this->textoserr');
 			 window.location.replace('./alta-personajes.php);
@@ -120,7 +147,7 @@ class Alta_ok
 
 		if ($datos['cuantos'] == 0){
 	
-		$consulta = mysqli_query($con, "insert into personajes values (NULL,'$this->nombre','$this->combo','$this->origen')");
+		$consulta = mysqli_query($con, "insert into personajes values (NULL,'$this->nombre','$this->combo','$this->origen','$this->precio')");
 
 			if (!$consulta) {
 				die("Error en introduccir los datos");

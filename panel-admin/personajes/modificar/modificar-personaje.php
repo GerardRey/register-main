@@ -56,6 +56,9 @@ require("./../../../comprovacion/compro_logeado_a.php");
 						<div class="form-group">
 							<input class="form-control" type="text" name="origen" placeholder="Origen" value="<?php echo $datos['origen'] ?>">
 						</div>
+						<div class="form-group">
+							<input class="form-control" placeholder="Precio" type="number" name="precio" max="5" min="1" value="<?php echo $datos['precio'] ?>" />
+						</div>
 						<p><button class="btn btn-primary btn-block" type="submit"><b>Modificar Personaje</b></button> 
 					</form>
 					

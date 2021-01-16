@@ -216,11 +216,27 @@ class Alta_ok
 			if (!$consulta) {
 				die("Error en introduccir los datos");
 			} else {
-				echo "<script type='text/JavaScript'>  
-				alert('Se a realizado correctamente el Registro'); 
+
+				$nombre_tabla = "carrito_".$this->nick;
+
+				$consulta1 = mysqli_query($con, "CREATE TABLE $nombre_tabla (
+					id_fila int(5) NOT NULL AUTO_INCREMENT,
+    				id_personaje int(11) NOT NULL,
+    				cantidad int(4) NOT NULL,
+    				nombre varchar(20) NOT NULL,
+    				precio int(1) NOT NULL,
+    				PRIMARY KEY(id_fila),
+    				FOREIGN KEY(id_personaje) REFERENCES personajes(id)
+				);");
+				if (!$consulta1) {
+					die("Error en introduccir los datos");
+				} else {
+					echo "<script type='text/JavaScript'>  
+					alert('Se a realizado correctamente el Registro'); 
 				
-				window.location.replace('./../log-register/login.html')
-				</script>";;
+					window.location.replace('./../log-register/login.html')
+					</script>";
+				}
 			}
 		}
 		else {

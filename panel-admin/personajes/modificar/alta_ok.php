@@ -8,6 +8,7 @@ class Alta_ok
 	private $nombre = null;
 	private $combo = null;
 	private $origen = null;
+	private $precio = 0;
 
 	private $textoserr = null;
 
@@ -39,6 +40,16 @@ class Alta_ok
 	public function setOrigen($origen)
 	{
 		$this->origen = $origen;
+	}
+
+	public function getPrecio()
+	{
+		return $this->precio;
+	}
+
+	public function setPrecio($precio)
+	{
+		$this->precio = $precio;
 	}
 
 	public function validarNombre($nombre)
@@ -78,6 +89,18 @@ class Alta_ok
 		} 
 	}
 
+	public function validarPrecio($precio) {
+
+		$this->precio = $precio;
+
+		if ($this->precio < 1 || $this->precio > 5) {
+
+			$this->textoserr = $this->textoserr . "Edad erronea tiene que ser entre 1 y 5 ";
+
+			$this->fallos++;
+		}
+	}
+
 	public function fallos() {
 		
 		if ($this->fallos != 0) {
@@ -114,7 +137,7 @@ class Alta_ok
 		}
 		/////
 	
-		$consulta = mysqli_query($con, "UPDATE personajes SET nombre = '$this->nombre', combo = '$this->combo', origen = '$this->origen' where id = '$id'");
+		$consulta = mysqli_query($con, "UPDATE personajes SET nombre = '$this->nombre', combo = '$this->combo', origen = '$this->origen', precio = '$this->precio' where id = '$id'");
 
 			if (!$consulta) {
 				die("Error en introduccir los datos");
