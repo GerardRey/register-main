@@ -78,7 +78,7 @@ require("./../../comprovacion/compro_logeado_u.php");
                 echo "<td>" . $combo . "</td>";
                 echo "<td>" . $origen . "</td>";
                 echo "<td>" . $precio . "</td>";
-                echo "<td><a class='bi bi-cart-plus' href='./carrito/anadir_carrito.php?id=$id'></a></td>";
+                echo "<td><a class='bi bi-bag-check' href='./carrito/anadir_carrito.php?id=$id'></a></td>";
                 
             echo "</tr>";
             

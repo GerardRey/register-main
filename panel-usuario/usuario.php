@@ -35,21 +35,30 @@ require("./../comprovacion/compro_logeado_u.php");
         <div class="container">
             <div class="row mt-4">
             <div class="col text-white">
-                <a href=""><img id="imagen" src="./User_icon_2.svg.png" alt="imagen eventos"></a>
+                <a href="./tienda/tienda.php"><img id="imagen" src="./tienda.png" alt="imagen tienda"></a>
             </div>
             <div class="col text-white">
-                <p>Haz click en la imagen para poder ir a la pagina donde se listan todos los usuarios que se han dado de alta en nuestra pagina web. </p>
+                <p>Haz click en la imagen para poder ir a la pagina donde esta toda la tienda y comprar tus campeones. </p>
                 <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae laborum nihil nisi ex earum, totam quibusdam ipsam mollitia illum perferendis fugiat modi voluptatibus dignissimos voluptas eos omnis quia fugit doloribus adipisci amet architecto voluptate quas doloremque beatae.</p>
             </div>
             </div>
             <div class="row mt-4">
                 <div class="col text-white">
-                    <p>Haz click en la imagen para poder ir a la pagina donde se listan todos los campeones que se han dado de alta en nuestra pagina web. </p>
+                    <p>Haz click en la imagen para poder ir a la pagina donde se listan el carrito. </p>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae laborum nihil nisi ex earum, totam quibusdam ipsam mollitia illum perferendis fugiat modi voluptatibus dignissimos voluptas eos omnis quia fugit doloribus adipisci amet architecto voluptate quas doloremque beatae.</p>
                 </div>
                 <div class="col text-white">
-                    <a href=""><img id="imagen" src="./champions.png" alt="imagen eventos"></a>
+                    <a href="./tienda/carrito/carrito.php"><img id="imagen" src="./carrito.png" alt="imagen carrito"></a>
                 </div>
+            </div>
+            <div class="row mt-4">
+            <div class="col text-white">
+                <a href="./perfil/perfil.php"><img id="imagen" src="./User_icon_2.svg.png" alt="imagen eventos"></a>
+            </div>
+            <div class="col text-white">
+                <p>Haz click en la imagen para poder ir a la pagina donde puedes modificar los datos de tu cuenta. </p>
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vitae laborum nihil nisi ex earum, totam quibusdam ipsam mollitia illum perferendis fugiat modi voluptatibus dignissimos voluptas eos omnis quia fugit doloribus adipisci amet architecto voluptate quas doloremque beatae.</p>
+            </div>
             </div>
         </div>
 

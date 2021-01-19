@@ -45,7 +45,8 @@ require("./../../../comprovacion/compro_logeado_u.php");
     echo "<div class='table-responsive tabla'>";
 
         echo "<table class='table table-striped bg-light'>";
-        $instruccion = "SELECT * FROM personajes";
+        $nombre_tabla = "carrito_".$_SESSION['nick'];
+        $instruccion = "SELECT * FROM $nombre_tabla";
         $resultado = mysqli_query($con, $instruccion);
 
         echo "<thead class='thead-light'>";
@@ -54,10 +55,9 @@ require("./../../../comprovacion/compro_logeado_u.php");
 
                 echo "<th scope='col'> Id </th>";
                 echo "<th scope='col'> Nombre </th>";
-                echo "<th scope='col'> Combo </th>";
-                echo "<th scope='col'> Origen </th>";
+                echo "<th scope='col'> Cantitat </th>";
                 echo "<th scope='col'> Precio </th>";
-                echo "<th scope='col'> Añadir al Carrito </th>";
+                echo "<th scope='col'> Eliminar del Carrito </th>";
 
             echo "</tr>";
 
@@ -65,20 +65,18 @@ require("./../../../comprovacion/compro_logeado_u.php");
 
         while ($fila = $resultado->fetch_assoc()) {
 
-            $id = $fila["id"];
+            $id = $fila["id_fila"];
             $nombre = $fila["nombre"];
-            $combo = $fila["combo"];
-            $origen = $fila["origen"];
+            $cantidad = $fila["cantidad"];
             $precio = $fila["precio"];
 
             echo "<tr >";
 
                 echo "<td>" . $id . "</td>";
                 echo "<td>" . $nombre . "</td>";
-                echo "<td>" . $combo . "</td>";
-                echo "<td>" . $origen . "</td>";
-                echo "<td>" . $precio . "</td>";
-                echo "<td><a class='bi bi-cart-plus' href='./carrito/anadir_carrito.php?id=$id'></a></td>";
+                echo "<td>" . $cantidad . "</td>";
+                echo "<td>" . ($precio*$cantidad) . "</td>";
+                echo "<td><a class='bi bi-bag-dash' href='./eliminar_carrito.php?id_fila=$id'></a></td>";
                 
             echo "</tr>";
             
@@ -89,6 +87,13 @@ require("./../../../comprovacion/compro_logeado_u.php");
     echo "</div>";
 
     ?>
+
+
+    <div class=" btn btn-lg btn-block">
+
+    <a class="btn btn-info container" href="./finalizar.php" type="button">Finalizar pedido</a>
+
+    </div>
     </div>
 
         </body>
