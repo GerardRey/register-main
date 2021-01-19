@@ -24,6 +24,7 @@ require("./../../comprovacion/compro_logeado_u.php");
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="navbar-brand" class="nav-link" href="./../tienda/tienda.php" >Tienda</a>
+                        <a class="navbar-brand" class="nav-link" href="./../tienda/carrito/carrito.php" >Carrito</a>
                         <a class="navbar-brand" class="nav-link" href="#" >Perfil</a>
                         <a class="navbar-brand" class="nav-link" type="button" onclick="logout()">Log Out</a>
                     </li>
