@@ -38,14 +38,37 @@ require("./../../comprovacion/compro_logeado_u.php");
 
         <div class="mx-5 mt-4">
 
+        <div>
+
+<div class='col container mx-5'>
+
+    <div class='input-group mb-3'>
+
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Ordenar por
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" href="./tienda.php?ordenar=nombre">Nombre</a>
+                <a class="dropdown-item" href="./tienda.php?ordenar=combo">Combo</a>
+                <a class="dropdown-item" href="./tienda.php?ordenar=origen">Origen</a>
+                <a class="dropdown-item" href="./tienda.php?ordenar=precio">Precio</a>
+                <a class="dropdown-item" href="./tienda.php?ordenar=id">Id</a>
+            </div>
+        </div>
+
+</div>
+
+</div>
+
         <div class="row">
 
 <?php
 
     echo "<div class='table-responsive tabla'>";
-
+        $ordenar = $_GET['ordenar'];
         echo "<table class='table table-striped bg-light'>";
-        $instruccion = "SELECT * FROM personajes";
+        $instruccion = "SELECT * FROM personajes ORDER BY $ordenar";
         $resultado = mysqli_query($con, $instruccion);
 
         echo "<thead class='thead-light'>";

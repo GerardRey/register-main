@@ -47,7 +47,7 @@ require("./../../../comprovacion/compro_logeado_a.php");
 					<h3 class="text-center mb-4">Modificar Usuario</h3>
 					<form action="general.php?nick=<?php echo $_GET['nick'] ?>" method="post">
 						<div class="form-group">
-							<input class="form-control" type="text" name="nick" placeholder="nick" value="<?php echo $datos['nick'] ?>" />
+							<input class="form-control" type="text" name="nick" placeholder="nick" disabled value="<?php echo $datos['nick'] ?>" />
 						</div>
 						<div class="form-group">
 							<input class="form-control" placeholder="Contraseña" name="pass" value=""

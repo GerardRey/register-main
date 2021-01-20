@@ -15,7 +15,7 @@ if (!$res) {
 
     echo "<script type='text/JavaScript'>  
     alert('Se a finalizado el pedido'); 	
-    window.location.replace('./../tienda.php')
+    window.location.replace('./../tienda.php?ordenar=id')
     </script>";
 
 }

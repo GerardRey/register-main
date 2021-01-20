@@ -183,7 +183,7 @@ class Alta_ok
 		die;
 	}
 	
-	public function insertsql($nickantiguo)
+	public function insertsql()
 	{
 
 		$this->pass = password_hash($this->pass, PASSWORD_DEFAULT);
@@ -209,9 +209,9 @@ class Alta_ok
 		$res = mysqli_query($con, $instruccion);
 		$datos = mysqli_fetch_assoc($res);
 
-		if ($datos['cuantos'] == 0){
+		if (!$datos['cuantos'] == 0){
 	
-		$consulta = mysqli_query($con, "UPDATE usuarios SET nick = '$this->nick', pass = '$this->pass', dni = '$this->dni', nombre = '$this->nombre', apellido = '$this->apellido', edad = '$this->edad', mail = '$this->mail', admin = 0 WHERE nick ='$nickantiguo'");
+		$consulta = mysqli_query($con, "UPDATE usuarios SET nick = '$this->nick', pass = '$this->pass', dni = '$this->dni', nombre = '$this->nombre', apellido = '$this->apellido', edad = '$this->edad', mail = '$this->mail', admin = 0 WHERE nick ='$this->nick'");
 
 			if (!$consulta) {
 				die("Error en introduccir los datos");

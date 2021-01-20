@@ -27,7 +27,7 @@
                     echo "<script type='text/JavaScript'>  
                             alert('Se a añadido el articulo al Carrito'); 
                         
-                            window.location.replace('./../tienda.php')
+                            window.location.replace('./../tienda.php?ordenar=id')
                             </script>";
                 }
     
@@ -41,7 +41,7 @@
                     echo "<script type='text/JavaScript'>  
                             alert('Se a añadido el articulo al Carrito'); 
                         
-                            window.location.replace('./../tienda.php')
+                            window.location.replace('./../tienda.php?ordenar=id')
                             </script>";
                 }
     

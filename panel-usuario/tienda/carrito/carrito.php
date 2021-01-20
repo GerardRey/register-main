@@ -27,7 +27,7 @@ require("./../../../comprovacion/compro_logeado_u.php");
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="navbar-brand" class="nav-link" href="./../tienda.php" >Tienda</a>
+                        <a class="navbar-brand" class="nav-link" href="./../tienda.php?ordenar=id" >Tienda</a>
                         <a class="navbar-brand" class="nav-link" href="#" >Carrito</a>
                         <a class="navbar-brand" class="nav-link" href="./../../perfil/perfil.php" >Perfil</a>
                         <a class="navbar-brand" class="nav-link" type="button" onclick="logout()">Log Out</a>
