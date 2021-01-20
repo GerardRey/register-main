@@ -12,18 +12,18 @@ $instruccion = "select * from personajes where 1";
 $resultado = mysqli_query($con, $instruccion);
 
 $xml->startElement("tft");
-    $xml->startElement("personajes");
-        while($fila = $resultado->fetch_assoc()) {
-            $nombre = $fila["nombre"];
-            $combo = $fila["combo"];
-            $origen = $fila["origen"];
-            $precio = $fila["precio"];
-            $xml->writeElement("Nombre", $nombre);
-            $xml->writeElement("Combo", $combo);
-            $xml->writeElement("Origen", $origen);
-            $xml->writeElement("Precio", $precio);
-        }
-    $xml->endElement();
+    while($fila = $resultado->fetch_assoc()) {
+        $xml->startElement("personajes");
+        $nombre = $fila["nombre"];
+        $combo = $fila["combo"];
+        $origen = $fila["origen"];
+        $precio = $fila["precio"];
+        $xml->writeElement("Nombre", $nombre);
+        $xml->writeElement("Combo", $combo);
+        $xml->writeElement("Origen", $origen);
+        $xml->writeElement("Precio", $precio);
+        $xml->endElement();
+    }
 $xml->endElement();
 
 $content = $xml->outputMemory();
